@@ -1,3 +1,4 @@
+"use client";
 import { PProps } from './Tag.props';
 import styles from './Tag.module.css';
 import cn from 'classnames';
