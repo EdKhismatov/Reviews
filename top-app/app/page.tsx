@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useState } from 'react';
+'use client';
+import { FunctionComponent, useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { Metadata } from 'next';
 import Htag from '@/components/Htag/Htag';
@@ -7,20 +7,15 @@ import Button from '@/components/Button/Button';
 import P from '../components/P/P';
 import Tag from '@/components/Tag/Tag';
 import Rating from '@/components/Rating/Rating';
+import Layout, { withLayout } from '@/layout/Layout';
 
-
-export default function Home() {
+function Home() {
   const [rating, setRating] = useState<number>(4);
 
-
-
   return (
-    <div>
+    <>
       <Htag tag="h1">Текст</Htag>
-      <Button
-        appearance={'primary'}
-        arrow="right"
-      >
+      <Button appearance={'primary'} arrow="right">
         Кнопка
       </Button>
       <Button appearance={'ghost'} arrow="right">
@@ -45,7 +40,9 @@ export default function Home() {
       <Tag size="s" color="primary">
         Primary
       </Tag>
-      <Rating rating={rating} isEditable setRating={setRating}/>
-    </div>
+      <Rating rating={rating} isEditable setRating={setRating} />
+    </>
   );
 }
+
+export default withLayout(Home);
